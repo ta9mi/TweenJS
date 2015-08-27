@@ -1,7 +1,7 @@
 /**
  * @module TweenJS
  */
-this.createjs = this.createjs || {};
+window.createjs = window.createjs || {};
 
 (function() {
 	"use strict";

@@ -69,7 +69,7 @@
 // TODO: evaluate a way to decouple paused from tick registration.
 
 // namespace:
-this.createjs = this.createjs||{};
+window.createjs = window.createjs||{};
 
 (function() {
 	"use strict";
@@ -135,7 +135,7 @@ this.createjs = this.createjs||{};
 		 * @default false
 		 */
 		this.ignoreGlobalPause = false;
-	
+
 		/**
 		 * If true, the tween will loop when it reaches the end. Can be set via the props param.
 		 * @property loop
@@ -143,7 +143,7 @@ this.createjs = this.createjs||{};
 		 * @default false
 		 */
 		this.loop = false;
-	
+
 		/**
 		 * Specifies the total duration of this tween in milliseconds (or ticks if useTicks is true).
 		 * This value is automatically updated as you modify the tween. Changing it directly could result in unexpected
@@ -154,7 +154,7 @@ this.createjs = this.createjs||{};
 		 * @readonly
 		 */
 		this.duration = 0;
-	
+
 		/**
 		 * Allows you to specify data that will be used by installed plugins. Each plugin uses this differently, but in general
 		 * you specify data by setting it to a property of pluginData with the same name as the plugin class.
@@ -171,7 +171,7 @@ this.createjs = this.createjs||{};
 		 * @type {Object}
 		 */
 		this.pluginData = pluginData || {};
-	
+
 		/**
 		 * The target of this tween. This is the object on which the tweened properties will be changed. Changing
 		 * this property after the tween is created will not have any effect.
@@ -180,7 +180,7 @@ this.createjs = this.createjs||{};
 		 * @readonly
 		 */
 		this.target = target;
-	
+
 		/**
 		 * The current normalized position of the tween. This will always be a value between 0 and duration.
 		 * Changing this property directly will have no effect.
@@ -189,7 +189,7 @@ this.createjs = this.createjs||{};
 		 * @readonly
 		 */
 		this.position = null;
-	
+
 		/**
 		 * Indicates the tween's current position is within a passive wait.
 		 * @property passive
@@ -198,8 +198,8 @@ this.createjs = this.createjs||{};
 		 * @readonly
 		 **/
 		this.passive = false;
-	
-	// private properties:	
+
+	// private properties:
 		/**
 		 * @property _paused
 		 * @type {Boolean}
@@ -207,35 +207,35 @@ this.createjs = this.createjs||{};
 		 * @protected
 		 */
 		this._paused = false;
-	
+
 		/**
 		 * @property _curQueueProps
 		 * @type {Object}
 		 * @protected
 		 */
 		this._curQueueProps = {};
-	
+
 		/**
 		 * @property _initQueueProps
 		 * @type {Object}
 		 * @protected
 		 */
 		this._initQueueProps = {};
-	
+
 		/**
 		 * @property _steps
 		 * @type {Array}
 		 * @protected
 		 */
 		this._steps = [];
-	
+
 		/**
 		 * @property _actions
 		 * @type {Array}
 		 * @protected
 		 */
 		this._actions = [];
-	
+
 		/**
 		 * Raw position.
 		 * @property _prevPosition
@@ -244,7 +244,7 @@ this.createjs = this.createjs||{};
 		 * @protected
 		 */
 		this._prevPosition = 0;
-	
+
 		/**
 		 * The position within the current step.
 		 * @property _stepPosition
@@ -253,7 +253,7 @@ this.createjs = this.createjs||{};
 		 * @protected
 		 */
 		this._stepPosition = 0; // this is needed by MovieClip.
-	
+
 		/**
 		 * Normalized position.
 		 * @property _prevPos
@@ -262,14 +262,14 @@ this.createjs = this.createjs||{};
 		 * @protected
 		 */
 		this._prevPos = -1;
-	
+
 		/**
 		 * @property _target
 		 * @type {Object}
 		 * @protected
 		 */
 		this._target = target;
-	
+
 		/**
 		 * @property _useTicks
 		 * @type {Boolean}
@@ -277,7 +277,7 @@ this.createjs = this.createjs||{};
 		 * @protected
 		 */
 		this._useTicks = false;
-	
+
 		/**
 		 * @property _inited
 		 * @type {boolean}
@@ -285,7 +285,7 @@ this.createjs = this.createjs||{};
 		 * @protected
 		 */
 		this._inited = false;
-		
+
 		/**
 		 * Indicates whether the tween is currently registered with Tween.
 		 * @property _registered
@@ -313,7 +313,7 @@ this.createjs = this.createjs||{};
 
 	// TODO: deprecated
 	// p.initialize = function() {}; // searchable for devs wondering where it is. REMOVED. See docs for details.
-	
+
 
 // static properties
 	/**
@@ -368,7 +368,7 @@ this.createjs = this.createjs||{};
 	Tween._plugins = {};
 
 
-// static methods	
+// static methods
 	/**
 	 * Returns a new tween instance. This is functionally identical to using "new Tween(...)", but looks cleaner
 	 * with the chained syntax of TweenJS.
@@ -549,7 +549,7 @@ this.createjs = this.createjs||{};
 	 * @event change
 	 * @since 0.4.0
 	 **/
-	
+
 
 // public methods:
 	/**
